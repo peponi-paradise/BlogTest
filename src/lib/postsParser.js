@@ -46,9 +46,12 @@ export function getPost(folderPath, slug) {
 function parsePost(path) {
   let { data, content } = matter(fs.readFileSync(path, "utf8"));
   let grayMatter = data;
+  console.log(`path= ${path}`);
   let sl = path.slice(path.indexOf("\\posts")).replace("\\posts\\", "");
+  console.log(`sl= ${sl}`);
   let folderPath = sl.substring(0, sl.indexOf("\\"));
   let slug = sl.slice(sl.indexOf("\\") + 1).replace(".mdx", "");
+  console.log(`folderPath= ${folderPath}, slug= ${slug}`);
   let minutesToRead = Math.ceil(readingTime(content).minutes);
   return { ...grayMatter, folderPath, slug, minutesToRead, content };
 }
