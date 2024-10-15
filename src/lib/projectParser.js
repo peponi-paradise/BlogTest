@@ -13,11 +13,13 @@ export function getProject(slug) {
   return parseProject(filePath);
 }
 
-function parseProject(path) {
-  let { data, content } = matter(fs.readFileSync(path, "utf8"));
+function parseProject(filepath) {
+  let { data, content } = matter(fs.readFileSync(filepath, "utf8"));
   let grayMatter = data;
-  let sl = path.slice(path.indexOf("\\projects")).replace("\\projects\\", "");
-  let slug = sl.slice(sl.indexOf("\\") + 1).replace(".mdx", "");
+  let sl = filepath
+    .slice(filepath.indexOf(`${path.sep}projects`))
+    .replace(`${path.sep}projects${path.sep}`, "");
+  let slug = sl.slice(sl.indexOf(`${path.sep}`) + 1).replace(".mdx", "");
   let minutesToRead = Math.ceil(readingTime(content).minutes);
   return { ...grayMatter, slug, minutesToRead, content };
 }
