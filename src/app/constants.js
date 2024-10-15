@@ -4,6 +4,7 @@ import PersonalImage from "../../public/jeje.jpg";
 
 export const MetaInformation = {
   charset: "UTF-8",
+  language: "ko",
   title: {
     template: "%s - Peponi",
     default: "Peponi",
@@ -18,9 +19,22 @@ export const MetaInformation = {
   googleSiteVerification: "",
 };
 
+export const GithubInformation = {
+  userName: "peponi-paradise",
+};
+
+export const LinkedInInformation = {};
+
 export const PostInformation = {
   viewCount: 5,
   pagenationRange: 2,
+};
+
+export const GiscusInformation = {
+  dataRepo: "peponi-paradise/PeponiBlogTemplate",
+  dataRepoId: "R_kgDOMu-0mA",
+  dataCategory: "Comments",
+  dataCategoryId: "DIC_kwDOMu-0mM4Ciuju",
 };
 
 export const PersonalInformation = {

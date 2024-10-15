@@ -1,5 +1,6 @@
 "use client";
 
+import { GiscusInformation, MetaInformation } from "@/app/constants";
 import Giscus from "@giscus/react";
 
 export default function GiscusComments() {
@@ -7,16 +8,16 @@ export default function GiscusComments() {
     <section className="mt-8">
       <Giscus
         id="comments"
-        repo="peponi-paradise/PeponiBlogTemplate"
-        repoId="R_kgDOMu-0mA"
-        category="Comments"
-        categoryId="DIC_kwDOMu-0mM4Ciuju"
+        repo={GiscusInformation.dataRepo}
+        repoId={GiscusInformation.dataRepoId}
+        category={GiscusInformation.category}
+        categoryId={GiscusInformation.categoryId}
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
         theme="transparent_dark"
-        lang="en"
+        lang={MetaInformation.language}
         loading="lazy"
       />
     </section>

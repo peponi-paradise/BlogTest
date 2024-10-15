@@ -24,7 +24,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko" className="scroll-smooth">
+    <html lang={MetaInformation.language} className="scroll-smooth">
       <head>
         {/* Add custom scripts, metadata like google search console */}
         {MetaInformation.googleSiteVerification !== undefined &&
