@@ -3,7 +3,7 @@
 // 2. https://www.nokiahub.name/posts/prettify-mdx-code-blocks
 
 import Main from "@/layouts/globalMain";
-import { getPost } from "@/lib/postsParser";
+import { getPost, totalPosts } from "@/lib/postsParser";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { remarkAlert } from "remark-github-blockquote-alert";
@@ -126,6 +126,12 @@ export function generateMetadata(props) {
       ],
     },
   };
+}
+
+export function generateStaticParams() {
+  return totalPosts.map((post) => ({
+    slug: [post.folderPath, post.slug],
+  }));
 }
 
 export default function Slug(props) {

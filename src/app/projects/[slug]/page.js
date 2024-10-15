@@ -24,7 +24,7 @@ import ArticleHeaderDesktop from "@/components/articleHeaderDesktop";
 import Toc from "@/components/toc";
 import getToc from "@/lib/tocParser";
 import GiscusComments from "@/components/giscusComments";
-import { getProject } from "@/lib/projectParser";
+import { getProject, totalProjects } from "@/lib/projectParser";
 import Image from "next/image";
 
 const autolinkHeadingsOptions = {
@@ -127,6 +127,12 @@ export function generateMetadata(props) {
       ],
     },
   };
+}
+
+export function generateStaticParams() {
+  return totalProjects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 export default function Slug(props) {
