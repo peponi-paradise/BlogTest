@@ -3,6 +3,8 @@ import ProjectTimelineList from "@/components/projectTimelineList";
 import Main from "@/layouts/globalMain";
 import { totalProjects } from "@/lib/projectParser";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: `Projects`,
   description: "Projects of " + MetaInformation.author,

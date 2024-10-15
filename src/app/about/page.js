@@ -18,6 +18,8 @@ import KnowledgeBadge from "@/components/knowledgeBadge";
 import ProjectCard from "@/components/projectCard";
 import { projectsPreview } from "@/lib/projectParser";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: `About`,
   description: "About " + MetaInformation.author,

@@ -6,6 +6,8 @@ import Link from "next/link";
 import { MetaInformation, PostInformation } from "@/app/constants";
 import Pagenation from "@/components/pagination";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: `Posts`,
   description: "Blog posts",
