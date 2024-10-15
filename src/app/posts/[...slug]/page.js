@@ -128,12 +128,6 @@ export function generateMetadata(props) {
   };
 }
 
-export function generateStaticParams() {
-  return totalPosts.map((post) => ({
-    slug: [post.folderPath, post.slug],
-  }));
-}
-
 export default function Slug(props) {
   let page = getPost(props.params.slug[0], props.params.slug[1]);
   return (

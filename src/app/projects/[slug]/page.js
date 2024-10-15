@@ -129,12 +129,6 @@ export function generateMetadata(props) {
   };
 }
 
-export function generateStaticParams() {
-  return totalProjects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
 export default function Slug(props) {
   let page = getProject(props.params.slug);
   return (
