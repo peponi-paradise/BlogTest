@@ -11,7 +11,7 @@ import ServiceTitle from "@/components/serviceTitle";
 import ServiceCard from "@/components/serviceCard";
 import { applyPostFilter, pagenation } from "@/lib/postsParser";
 import PostList from "@/components/postList";
-import GitHubCalendar from "react-github-calendar";
+import GithubGrass from "@/components/githubGrass";
 
 export default function Home() {
   let totalPosts = applyPostFilter();
@@ -33,11 +33,9 @@ export default function Home() {
             <StatCard value="10+" title="Projects" />
             <StatCard value="5+" title="Nuget Packages" />
           </div>
-          <GitHubCalendar
-            username={GithubInformation.userName}
-            colorScheme="dark"
-            hideTotalCount={true}
-          />
+          <div className="mx-auto mt-4 grid grid-cols-1">
+            <GithubGrass />
+          </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <iframe
               className="size-full"
@@ -48,10 +46,6 @@ export default function Home() {
               src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GithubInformation.userName}&layout=compact&theme=transparent&hide_border=true&title_color=38bdf8&text_color=94a3b8`}
             ></iframe>
           </div>
-          {/* <iframe
-            className="lg:min-h-56"
-            src="https://github-readme-activity-graph.vercel.app/graph?username=peponi-paradise&bg_color=transparent&hide_border=true&title_color=38bdf8&color=94a3b8&line=7dd3fc&point=38bdf8&days=30"
-          ></iframe> */}
         </section>
       </section>
       <section className="mx-auto mt-16 grid gap-8 rounded-xl border border-slate-700 bg-slate-700/10 px-4 py-4 sm:px-8 lg:grid-cols-3">

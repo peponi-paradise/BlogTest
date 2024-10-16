@@ -7,7 +7,11 @@ import github from "@/assets/svgs/github.svg";
 import githubHover from "@/assets/svgs/githubHover.svg";
 import linkedIn from "@/assets/svgs/linkedIn.svg";
 import linkedInHover from "@/assets/svgs/linkedInHover.svg";
-import { MetaInformation } from "@/app/constants";
+import {
+  GithubInformation,
+  LinkedInInformation,
+  MetaInformation,
+} from "@/app/constants";
 
 function LinkButton(props) {
   const [isHover, setIsHover] = useState(false);
@@ -33,12 +37,12 @@ export default function Footer() {
       </p>
       <section className="flex flex-row items-center gap-4 px-8 py-4">
         <LinkButton
-          url="https://github.com"
+          url={`https://github.com/${GithubInformation.userName}`}
           normalSrc={github}
           hoverSrc={githubHover}
         />
         <LinkButton
-          url="https://www.linkedin.com"
+          url={LinkedInInformation.profileUrl}
           normalSrc={linkedIn}
           hoverSrc={linkedInHover}
         />

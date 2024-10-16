@@ -1,3 +1,4 @@
+import path from "path";
 import { totalPosts } from "@/lib/postsParser";
 import { MetaInformation } from "./constants";
 import { totalProjects } from "@/lib/projectParser";
@@ -12,7 +13,7 @@ export default function sitemap() {
     lastModified: new Date(),
   };
   let posts = totalPosts.map((post) => ({
-    url: `${MetaInformation.baseUrl}/posts/${post.folderPath}/${post.slug}`,
+    url: `${MetaInformation.baseUrl}${path.join(post.folderPath, post.slug).replaceAll("\\", "/")}`,
     lastModified: post.date,
   }));
   let projects = totalProjects.map((project) => ({

@@ -2,8 +2,9 @@
 // 1. https://claritydev.net/blog/copy-to-clipboard-button-nextjs-mdx-rehype
 // 2. https://www.nokiahub.name/posts/prettify-mdx-code-blocks
 
+import path from "path";
 import Main from "@/layouts/globalMain";
-import { getPost, totalPosts } from "@/lib/postsParser";
+import { getPost } from "@/lib/postsParser";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { remarkAlert } from "remark-github-blockquote-alert";
@@ -90,7 +91,7 @@ const options = {
 };
 
 export function generateMetadata(props) {
-  let page = getPost(props.params.slug[0], props.params.slug[1]);
+  let page = getPost(path.join(...props.params.slug));
 
   let ogSearchParams = new URL(`${MetaInformation.baseUrl}/api/openGraph`);
   ogSearchParams.searchParams.set("title", page.title);
@@ -114,7 +115,7 @@ export function generateMetadata(props) {
       type: "article",
       authors: [`${MetaInformation.author}`],
       publishedTime: new Date(page.date).toISOString(),
-      url: `${MetaInformation.baseUrl}/posts/${page.folderPath}/${page.slug}`,
+      url: `${path.join(MetaInformation.baseUrl, page.folderPath, page.slug)}`,
       images: [
         {
           url: ogSearchParams.toString(),
@@ -129,7 +130,7 @@ export function generateMetadata(props) {
 }
 
 export default function Slug(props) {
-  let page = getPost(props.params.slug[0], props.params.slug[1]);
+  let page = getPost(path.join(...props.params.slug));
   return (
     <Main className="my-8">
       <section className="prose prose-invert grid min-w-full grid-cols-1 justify-between gap-12 lg:grid-cols-12">

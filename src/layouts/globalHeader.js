@@ -65,7 +65,7 @@ export default function Header() {
         </div>
         <nav className="flex flex-row">
           <Link
-            href="/posts?folderPath=all"
+            href="/posts?category=all"
             className="my-auto border-r border-slate-700 pr-2 hover:text-sky-400"
           >
             Posts

@@ -9,11 +9,11 @@ import Pagenation from "@/components/pagination";
 export const metadata = {
   title: `Posts`,
   description: "Blog posts",
-  keywords: totalCategories.map((category) => category[0]),
+  keywords: totalCategories,
   openGraph: {
     title: "Posts",
     description: "Blog posts",
-    url: MetaInformation.baseUrl + "/posts?folderPath=all",
+    url: MetaInformation.baseUrl + "/posts?category=all",
     images: [
       {
         url: "./opengraph-image.png",
@@ -33,7 +33,7 @@ const otherCategoryClass =
 
 export default function Posts(props) {
   let currentPosts = applyPostFilter(
-    props.searchParams.folderPath,
+    props.searchParams.category,
     props.searchParams.title,
   );
   let posts = pagenation(
@@ -59,9 +59,9 @@ export default function Posts(props) {
           <ul>
             <li className="mb-2">
               <Link
-                href={`/posts?folderPath=all`}
+                href={`/posts?category=all`}
                 className={
-                  props.searchParams.folderPath == "all"
+                  props.searchParams.category == "all"
                     ? "text-xl text-sky-400"
                     : "text-xl text-slate-200/90 hover:text-sky-400"
                 }
@@ -71,18 +71,18 @@ export default function Posts(props) {
             </li>
             {totalCategories.map((category) => (
               <li
-                key={category[0]}
+                key={category}
                 className={
-                  category[1] == props.searchParams.folderPath
+                  category == props.searchParams.category
                     ? selectedCategoryClass
                     : otherCategoryClass
                 }
               >
                 <Link
                   className="hover:text-sky-400"
-                  href={`/posts?folderPath=${category[1]}`}
+                  href={`/posts?category=${category}`}
                 >
-                  {category[0]}
+                  {category}
                 </Link>
               </li>
             ))}

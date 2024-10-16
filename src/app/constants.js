@@ -23,7 +23,9 @@ export const GithubInformation = {
   userName: "peponi-paradise",
 };
 
-export const LinkedInInformation = {};
+export const LinkedInInformation = {
+  profileUrl: "https://linkedin.com",
+};
 
 export const PostInformation = {
   viewCount: 5,

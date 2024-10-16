@@ -17,6 +17,7 @@ import ProgressBar from "@/components/progressBar";
 import KnowledgeBadge from "@/components/knowledgeBadge";
 import ProjectCard from "@/components/projectCard";
 import { projectsPreview } from "@/lib/projectParser";
+import GithubGrass from "@/components/githubGrass";
 
 export const metadata = {
   title: `About`,
@@ -49,6 +50,9 @@ export default function About() {
             <StatCard value="5+" title="Nuget Packages" />
             <StatCard value="5+" title="Clients" />
           </div>
+          <div className="mx-auto mt-4 grid grid-cols-1">
+            <GithubGrass />
+          </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <iframe
               className="size-full"
@@ -59,10 +63,6 @@ export default function About() {
               src="https://github-readme-stats.vercel.app/api/top-langs/?username=peponi-paradise&layout=compact&theme=transparent&hide_border=true&title_color=38bdf8&text_color=94a3b8"
             ></iframe>
           </div>
-          <iframe
-            className="lg:min-h-56"
-            src="https://github-readme-activity-graph.vercel.app/graph?username=peponi-paradise&bg_color=transparent&hide_border=true&title_color=38bdf8&color=94a3b8&line=7dd3fc&point=38bdf8&days=30"
-          ></iframe>
         </section>
       </section>
       <section className="mx-auto mt-16 grid gap-8 rounded-xl border border-slate-700 bg-slate-700/10 px-4 py-4 sm:px-8 lg:grid-cols-3">

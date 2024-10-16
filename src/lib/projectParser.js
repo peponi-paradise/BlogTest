@@ -5,8 +5,8 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 
 const projectPath = path.join(process.cwd(), "projects");
-export let totalProjects = getAllProjects();
-export let projectsPreview = totalProjects.slice(0, 4);
+export const totalProjects = getAllProjects();
+export const projectsPreview = totalProjects.slice(0, 4);
 
 export function getProject(slug) {
   let filePath = path.join(process.cwd(), "projects", `${slug}.mdx`);
@@ -30,7 +30,7 @@ function getAllProjects() {
   });
   let projects = paths.map((path) => parseProject(path));
   projects.sort(function (a, b) {
-    return b.date - a.date;
+    return b.dateFrom - a.dateFrom;
   });
   return projects;
 }
