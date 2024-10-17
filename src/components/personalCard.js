@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function PersonalCard(props) {
+export default function PersonalCard({ children, ...props }) {
   if (props.personalImage !== undefined) {
     return (
       <section
@@ -24,6 +24,7 @@ export default function PersonalCard(props) {
               {props.company}
             </p>
             <p className="text-sm">{props.additionalInformation}</p>
+            {children !== undefined && children != "" ? [children] : <></>}
           </div>
         </div>
         <p
@@ -51,6 +52,7 @@ export default function PersonalCard(props) {
           {props.company}
         </p>
         <p className="mb-4 text-sm">{props.additionalInformation}</p>
+        {children !== undefined && children != "" ? [children] : <></>}
         <p
           className={
             props.lineClamp !== undefined && props.lineClamp == true

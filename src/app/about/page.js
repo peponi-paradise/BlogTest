@@ -50,9 +50,7 @@ export default function About() {
             <StatCard value="5+" title="Nuget Packages" />
             <StatCard value="5+" title="Clients" />
           </div>
-          <div className="mx-auto mt-4 grid grid-cols-1">
-            <GithubGrass />
-          </div>
+          <GithubGrass />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <iframe
               className="size-full"
